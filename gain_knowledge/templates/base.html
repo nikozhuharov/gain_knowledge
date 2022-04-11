@@ -21,18 +21,20 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'index' %}">Home</a>
-            </li>
+            {% if not hide_additional_nav_items %}
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'list categories' %}">Categories</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Add Training</a>
+                <a class="nav-link" href="{% url 'user list courses' %}">My Courses</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'profile details' %}">Profile</a>
+                <a class="nav-link" href="{% url 'profile details' request.user.id%}">Profile</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout user'%}">Logout</a>
+            </li>
+            {% endif %}
         </ul>
     </div>
 </nav>
