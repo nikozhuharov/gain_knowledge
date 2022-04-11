@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block page_content %}
+<h1>Choose test</h1>
+    <div>
+        {% for test in tests %}
+
+            <h5><a href="{% url 'display question' 1%}">{{ test.title }}</a></h5>
+
+            </div>
+        {% endfor %}
+    </div>
+
+
+{% endblock %}

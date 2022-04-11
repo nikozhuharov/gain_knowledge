@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block page_content %}
+    <div>
+        <h1 class="text-center">{{ course_detail.title }}</h1>
+
+        <img class="rounded mx-auto d-block"
+             src="{{ course_detail.picture.url }}" alt="Image">
+
+        <p>{{ course_detail.description }}</p>
+        <div class="d-flex justify-content-center">
+            <video width="640" height="480" controls>
+            <source src="{{ course_detail.video.url }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+    <h5>PDF File Available</h5>
+    <p>Open <a href="{{ course_detail.document.url }}" target="_blank">PDF</a>.</p>
+
+        <a href="{% url 'list tests' course_detail.pk %}">
+            <button>Start Test</button>
+        </a>
+
+
+
+    </div>
+{% endblock %}
